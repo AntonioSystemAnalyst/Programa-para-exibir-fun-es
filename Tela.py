@@ -1,3 +1,7 @@
+from matplotlib.image import FigureImage
+import matplotlib.pyplot as plt
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from distutils import command
 from tkinter import *
 from tkinter import ttk
@@ -6,11 +10,14 @@ from Funcoes import sequencia
 root = Tk()
 
 class Front():
+
+
     def __init__(self):
         self.root = root
         self.tela()
         self.Labels()
         self.botoes()
+        self.matplocanv()
         root.mainloop()
 
     def tela(self):
@@ -36,4 +43,15 @@ class Front():
         
         self.btn4 = Button(self.root, text = "Exponenical", command=sequencia)
         self.btn4.place(relx=0.015, rely= 0.559, relwidth=0.15, relheight=0.1)
+
+    def matplocanv(self):
+        f = Figure (figsize=(5,5), dpi = 100)
+        a = f.add_subplot(111)
+        a.plot([1,2,3,4,5,6,7,8], [5,6,7,2,4,1,3,7])
+        self.root.canvas = FigureCanvasTkAgg(f, self)
+        self.root.canvas.show()
+        self.root.canvas.get_tk_widget().pack(side = BOTTOM, fill = BOTH, expand = True)
+        #toolbar = NavigationToolbar2TkAgg (canvas, self)
+        #canvas._tkcanvas.pack (side = TOP, fill = BOTH, expand = True)
+
 Front()
