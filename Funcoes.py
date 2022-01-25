@@ -1,5 +1,9 @@
+from random import random
+from re import X
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import math
+
 def cmd_click ():
     print ('Hello World!')
 def sequencia ():
@@ -22,4 +26,17 @@ def sequencia ():
     print ("qtd: {}".format(qtd + 1))
     plt.scatter(vetx, vety)
     plt.show()
+
+
+def linear_Func():
+    print ('CHEGOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOUuuuuuuuuuuuuuuuuuuuuuuuuuuu')
+    x = random(1,10)
+    result = []
+    for i in range (4):
+        result[i] = x + 1
+    print (result)  
+    return result
+    
+
+      
 
