@@ -43,20 +43,44 @@ def linear_Func():  # y = x + 1 rnd em x inicial
 
 def Parab_Func():  # y = ax^2 + bx + c 
 
-    a = random.randrange(1, 10)
-    b = random.randrange(1, 10)
-    c = random.randrange(1, 10)
-    x = -b/(2*a)
-    y = -1*(b*b-(4*a*c))/(4*a)
-    resultx = [1, 2, 3, 4, 5, 7, 8]
-    resulty = [1, 2, 3, 4, 5, 7, 8]
-    resultx [4] = x 
-    resulty [4] = y 
-    i = 5
-    for i in range (3):
-        resultx[i] = x + i
-        resulty[i] = y + i
+    ax = random.randrange(1,10)
+    if ax%2 == 0:
+        a = random.randrange(1, 10)
+    else:
+        a =-1*random.randrange(1, 10)
+    b = random.randrange(0, 10)
+    c = random.randrange(0, 10)
+    x = -1*b/(2*a)
+    y = -1*((b*b)-(4*a*c))/(4*a)
+    resultx = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    resulty = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    resulty[5] = y
+    resultx[5] = x
+    for i in range (10):
+
+        if i < 5:
+            resultx[i] = x - (3-i)
+            resulty[i] = ((a*resultx[i]*resultx[i]) + (b*resultx[i]) + c) 
+        if i > 5:
+            resultx[i] = x + (i-6)
+            resulty[i] = ((a*resultx[i]*resultx[i]) + (b*resultx[i]) + c) 
+    
+    print ('a: {}'.format(a))
+    print ('b: {}'.format(b))
+    print ('c: {}'.format(c))
+
+    print ('Em x: {}'.format(x))
+    print ('Em y: {}'.format(y))
+
+    print (' ----------')
+    print (resultx)
+    print (' ----------')
+    print (resulty)
+    print (' ----------')
+    
     return resultx, resulty
+
+   
     
 
 

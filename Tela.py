@@ -36,17 +36,15 @@ class Front():
         canva.draw()
     
     def comunicacao2 (self):
-       
         x, y = Parab_Func()
-        Y = [1, 2, 7, 6, 8, 9]
-        X = [0, 1, 2, 3, 4, 5]
-        Y =  resultado
-        i = 0
-
         ax.clear()
         ax.plot(x, y)
         ax.legend()
         canva.draw()
+        print (' ------------------- aq:')
+        print (x)
+        print (' -------------------')
+        print (y)
 
     def __init__(self):
         self.root = root
@@ -83,7 +81,7 @@ class Front():
     def grafico(self):
         Y = resultado
         X = [1, 2, 3, 4, 5]
-        ax.plot(X, Y)
+        ax.scatter(X, Y)
         ax.legend()
          
 Front()
