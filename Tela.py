@@ -41,10 +41,21 @@ class Front():
         ax.plot(x, y)
         ax.legend()
         canva.draw()
-        print (' ------------------- aq:')
-        print (x)
-        print (' -------------------')
-        print (y)
+    
+    def comunicacao3 (self):
+        x, y = Logaritmo_Func ()
+        ax.clear()
+        ax.plot(x, y)
+        ax.legend()
+        canva.draw()
+    
+    def comunicacao4 (self):
+        x, y = Exp_Func ()
+        ax.clear()
+        ax.plot(x, y)
+        ax.legend()
+        canva.draw()
+
 
     def __init__(self):
         self.root = root
@@ -69,13 +80,13 @@ class Front():
         self.btn1 = Button(self.root, text = "Linear", command=self.comunicacao1)
         self.btn1.place(relx=0.015, rely= 0.2, relwidth=0.15, relheight=0.1)
 
-        self.btn2 = Button(self.root, text = "Parabola", command=self.comunicacao2)
+        self.btn2 = Button(self.root, text = "Parábola", command=self.comunicacao2)
         self.btn2.place(relx=0.015, rely= 0.32, relwidth=0.15, relheight=0.1)
     
-        self.btn3 = Button(self.root, text = "Logaritma")
+        self.btn3 = Button(self.root, text = "Logarítma", command=self.comunicacao3)
         self.btn3.place(relx=0.015, rely= 0.435, relwidth=0.15, relheight=0.1)
         
-        self.btn4 = Button(self.root, text = "Exponenical", command="")
+        self.btn4 = Button(self.root, text = "Exponencial", command=self.comunicacao4)
         self.btn4.place(relx=0.015, rely= 0.559, relwidth=0.15, relheight=0.1)
     
     def grafico(self):

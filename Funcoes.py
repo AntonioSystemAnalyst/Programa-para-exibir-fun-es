@@ -1,9 +1,7 @@
 import random
-from re import X
-from tkinter import Y
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-import math
+import numpy 
 
 def cmd_click ():
     print ('Hello World!')
@@ -57,28 +55,33 @@ def Parab_Func():  # y = ax^2 + bx + c
     resulty[5] = y
     resultx[5] = x
     for i in range (10):
-
         if i < 5:
             resultx[i] = x - (3-i)
             resulty[i] = ((a*resultx[i]*resultx[i]) + (b*resultx[i]) + c) 
         if i > 5:
             resultx[i] = x + (i-6)
-            resulty[i] = ((a*resultx[i]*resultx[i]) + (b*resultx[i]) + c) 
-    
-    print ('a: {}'.format(a))
-    print ('b: {}'.format(b))
-    print ('c: {}'.format(c))
-
-    print ('Em x: {}'.format(x))
-    print ('Em y: {}'.format(y))
-
-    print (' ----------')
-    print (resultx)
-    print (' ----------')
-    print (resulty)
-    print (' ----------')
-    
+            resulty[i] = ((a*resultx[i]*resultx[i]) + (b*resultx[i]) + c)     
     return resultx, resulty
+
+
+def Logaritmo_Func ():
+    y = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    rnd = random.randrange(1, 11)
+    for i in range (10):
+        x[i] = numpy.log(rnd+i)
+        y[i] = i  
+    return x, y
+
+def Exp_Func ():
+    y = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    rnd = random.randrange(1, 11)
+    for i in range (10):
+        x[i] = ((rnd+i)*(rnd+i))
+        y[i] = i  
+    return x, y 
+
 
    
     
