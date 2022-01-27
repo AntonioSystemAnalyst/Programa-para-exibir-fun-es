@@ -85,7 +85,7 @@ class Front():
         root.mainloop()
 
     def tela(self):
-        self.root.title('Finonaci')
+        self.root.title('Fibonaci')
         self.root.configure(background='#000000')
         self.root.geometry("710x370+200+200")
         self.root.resizable(False, False)
