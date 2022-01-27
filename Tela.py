@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import random
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from tkinter import *
 from Funcoes import *
@@ -16,46 +17,64 @@ canva =  FigureCanvasTkAgg(Figura, root)
 canva.get_tk_widget().place(relx=0.25, rely= 0.2)
 toolbar = NavigationToolbar2TkAgg (canva, root)
 canva._tkcanvas.place(relx=0.25, rely= 0.2)
-
-
-resultado = [1, 2, 3, 4, 5]
-
+plt.rcParams['figure.figsize'] = (13,7)
 class Front():
 
     def comunicacao1 (self):
-       
-        resultado = linear_Func()
-        Y = [1, 2, 7, 6, 8, 9]
-        X = [0, 1, 2, 3, 4, 5]
-        Y =  resultado
-        i = 0
-
+        x, y = linear_Func()
         ax.clear()
-        ax.plot(X, Y)
-        ax.legend()
+        ax.plot(x, y)
         canva.draw()
+        self.Label1 = Label(self.root, text = "Função Linear", font='verdona-bold 11', bg='#000000', fg='#0000FF')
+        self.Label1.place(relx=0.365, rely= 0.09, relwidth=0.40, relheight=0.1)
     
     def comunicacao2 (self):
         x, y = Parab_Func()
         ax.clear()
         ax.plot(x, y)
-        ax.legend()
         canva.draw()
+        self.Label1 = Label(self.root, text = "Função Parabólica", font='verdona-bold 11', bg='#000000', fg='#0000FF')
+        self.Label1.place(relx=0.365, rely= 0.09, relwidth=0.40, relheight=0.1)
     
     def comunicacao3 (self):
         x, y = Logaritmo_Func ()
         ax.clear()
         ax.plot(x, y)
-        ax.legend()
         canva.draw()
+        self.Label1 = Label(self.root, text = "Função Logarítima", font='verdona-bold 11', bg='#000000', fg='#0000FF')
+        self.Label1.place(relx=0.365, rely= 0.09, relwidth=0.40, relheight=0.1)
     
     def comunicacao4 (self):
         x, y = Exp_Func ()
         ax.clear()
         ax.plot(x, y)
-        ax.legend()
         canva.draw()
+        self.Label1 = Label(self.root, text = "Função Exponencial", font='verdona-bold 11', bg='#000000', fg='#0000FF')
+        self.Label1.place(relx=0.365, rely= 0.09, relwidth=0.40, relheight=0.1)
 
+    def Aleatorio(self):
+        x = []
+        y = []
+        for i in range (50):
+            rnd = random.randrange(1, 200) 
+            x.append(rnd*i)
+            y.append(i)
+        ax.clear()
+        ax.plot(x, y)
+        canva.draw()
+        self.Label1 = Label(self.root, text = "Função Aleatória", font='verdona-bold 11', bg='#000000', fg='#0000FF')
+        self.Label1.place(relx=0.365, rely= 0.09, relwidth=0.40, relheight=0.1)
+    
+    def grafico(self):
+        x = []
+        y = []
+        for i in range (50):
+            rnd = random.randrange(1, 200) 
+            x.append(rnd*i)
+            y.append(i)
+        ax.plot(x, y)
+        ax.set_facecolor('xkcd:black')
+       
 
     def __init__(self):
         self.root = root
@@ -67,14 +86,17 @@ class Front():
 
     def tela(self):
         self.root.title('Finonaci')
-        self.root.configure(background='#207293')
-        self.root.geometry("730x390+200+200")
+        self.root.configure(background='#000000')
+        self.root.geometry("710x370+200+200")
         self.root.resizable(False, False)
         self.root.iconbitmap("imagens/icon.ico")
     
     def Labels(self):
-        self.Label1 = Label(self.root, text = "FIBONACI - Visualizador de Funções", font='verdona-bold 10', bg='#207293', fg='#000000')
-        self.Label1.place(relx=0.015, rely= 0.05, relwidth=0.30, relheight=0.1)
+        self.Label1 = Label(self.root, text = "FIBONACI - Visualizador de Funções", font='verdona-bold 13', bg='#000000', fg='#0000FF')
+        self.Label1.place(relx=0.015, rely= 0.01, relwidth=0.40, relheight=0.1)
+
+        self.Label1 = Label(self.root, text = "Função Aleatória", font='verdona-bold 11', bg='#000000', fg='#0000FF')
+        self.Label1.place(relx=0.365, rely= 0.09, relwidth=0.40, relheight=0.1)
 
     def botoes(self):
         self.btn1 = Button(self.root, text = "Linear", command=self.comunicacao1)
@@ -88,11 +110,8 @@ class Front():
         
         self.btn4 = Button(self.root, text = "Exponencial", command=self.comunicacao4)
         self.btn4.place(relx=0.015, rely= 0.559, relwidth=0.15, relheight=0.1)
-    
-    def grafico(self):
-        Y = resultado
-        X = [1, 2, 3, 4, 5]
-        ax.scatter(X, Y)
-        ax.legend()
-         
+
+        self.btn4 = Button(self.root, text = "Aleatório", command=self.Aleatorio)
+        self.btn4.place(relx=0.015, rely= 0.679, relwidth=0.15, relheight=0.1)
+     
 Front()

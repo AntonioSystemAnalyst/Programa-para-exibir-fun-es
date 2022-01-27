@@ -28,16 +28,18 @@ def sequencia ():
 
 
 def linear_Func():  # y = x + 1 rnd em x inicial 
-    result = [1, 2, 3, 4, 5, 6]
+    x = []
+    y = []
     rnd = random.randrange (1,10)
     ax = random.randrange(1,10)
     i = 0
     for i in range (6):
         if ax % 2 == 0:
-            result[i] = rnd - i
+            x.append(rnd - i)
         else:
-            result[i] = rnd + i 
-    return result
+            x.append(rnd + i)
+        y.append(i)   
+    return  x, y
 
 def Parab_Func():  # y = ax^2 + bx + c 
 
@@ -50,36 +52,43 @@ def Parab_Func():  # y = ax^2 + bx + c
     c = random.randrange(0, 10)
     x = -1*b/(2*a)
     y = -1*((b*b)-(4*a*c))/(4*a)
-    resultx = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    resulty = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    resulty[5] = y
-    resultx[5] = x
-    for i in range (10):
-        if i < 5:
-            resultx[i] = x - (3-i)
-            resulty[i] = ((a*resultx[i]*resultx[i]) + (b*resultx[i]) + c) 
-        if i > 5:
-            resultx[i] = x + (i-6)
-            resulty[i] = ((a*resultx[i]*resultx[i]) + (b*resultx[i]) + c)     
+    resultx = []
+    resulty = []
+    for i in range (200):
+        if i < 100:
+            resultx.append(x - (98-i))
+            resulty.append(((a*resultx[i]*resultx[i]) + (b*resultx[i]) + c)) 
+        if i > 100:
+            resultx.append(x + (i-100))
+            resulty.append(((a*resultx[i]*resultx[i]) + (b*resultx[i]) + c)) 
+        if i == 100:
+             resulty.append(y)
+             resultx.append(x)    
     return resultx, resulty
 
 
 def Logaritmo_Func ():
-    y = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    y = []
+    x = []
     rnd = random.randrange(1, 11)
-    for i in range (10):
-        x[i] = numpy.log(rnd+i)
-        y[i] = i  
+    for i in range (100):
+        if rnd % 2 == 0:
+             x.append(-1*numpy.log(rnd+i))
+        else:
+             x.append(numpy.log(rnd+i))
+        y.append(i)  
     return x, y
 
 def Exp_Func ():
-    y = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    y = []
+    x = []
     rnd = random.randrange(1, 11)
-    for i in range (10):
-        x[i] = ((rnd+i)*(rnd+i))
-        y[i] = i  
+    for i in range (100):
+        if rnd % 2 == 0:  
+            x.append((-1*(rnd+i)*(rnd+i)))
+        else:
+            x.append(((rnd+i)*(rnd+i)))
+        y.append(i)
     return x, y 
 
 
