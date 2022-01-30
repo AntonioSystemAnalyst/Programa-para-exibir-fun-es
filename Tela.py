@@ -57,8 +57,8 @@ class Front():
         y = []
         for i in range (50):
             rnd = random.randrange(1, 200) 
-            x.append(rnd*i)
-            y.append(i)
+            x.append(i)
+            y.append(rnd)
         ax.clear()
         ax.plot(x, y)
         canva.draw()
